@@ -596,13 +596,13 @@ Let's simulate an e-commerce site. We're going to need users, products, and orde
 
 ### Instructions
 
-* Create 3 tables following the criteria in the summary.
+<!-- * Create 3 tables following the criteria in the summary.
 * Add some data to fill up each table.
   * At least 3 users, 3 products, 3 orders.
 * Run queries against your data.
   * Get all products for the first order.
   * Get all orders.
-  * Get the total cost of an order ( sum the price of all products on an order ).
+  * Get the total cost of an order ( sum the price of all products on an order ). -->
 * Add a foreign key reference from orders to users.
 * Update the orders table to link a user to each order.
 * Run queries against your data.

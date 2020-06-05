@@ -183,7 +183,7 @@ create table products(
 );
 
 create table orders(
-  id serial primary key,
+  order_id serial primary key,
   product_id int
 );
 
@@ -209,4 +209,48 @@ values(2);
 insert into orders(product_id)
 values(3);
 
+--3
+select * from products p
+join orders o on o.product_id = p.product_id
+where o.product_id = 1;
 
+select * from products p
+join orders o on o.product_id = p.product_id;
+
+select sum(p.price) from orders o
+join products p on o.product_id = p.product_id
+where o.product_id = 3;
+
+--4
+alter table orders
+add column user_id int
+references users(user_id);
+
+
+--5
+update orders
+set user_id=1
+where product_id = 2;
+
+update orders
+set user_id=2
+where product_id = 3;
+
+update orders
+set user_id=3
+where product_id = 1;
+
+--6
+select * from products
+where product_id in (
+	select product_id from orders
+  where user_id in (
+    select user_id from users
+    where name = 'Tori'
+  )
+);
+
+--7
+select u.name, count (*) from orders o
+join users u on u.user_id = o.user_id
+group by u.name;
